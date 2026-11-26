@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Shima Enaga</title>
+    <link rel="icon" href="img/shima-enaga-icon.png">
+</head>
+<style>
+    @font-face {
+        font-family: "Sakura";
+        src: url(fonts/blossom_sakura/Blossom\ Sakura\ Demo.otf);
+    }
+    * {
+        margin: 0 auto;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        width: 640px;
+        max-width: 640px;
+        margin: 0 auto;
+        outline: 5px solid rgb(72, 32, 16);
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+    }
+    section {
+        width: 600px;
+        max-width: 600px;
+        #article-text {
+            border: 2px solid chocolate;
+            background-color: white;
+        }
+    }
+    h1, h2 {
+        text-align: center;
+        color: rgb(72, 32, 16);
+        font-family: "Sakura";
+    }
+    a {
+        font-family: "Sakura";
+        font-size: 12px;
+        color: chocolate;
+        -webkit-text-stroke: 0.5px rgb(72, 32, 16);
+    }
+    a:hover {
+        font-size: 16px;
+
+        #social-icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    p {
+        color: rgb(72, 32, 16);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+    #top {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    #navegacion {
+        height: 30px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 40px;
+    }
+    #bird-gifs {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        img {
+            width: 32px;
+            height: 25px;
+        }
+    }
+    #text-block-1 {
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            width: 580px;
+        }
+    }
+    #article-section {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+
+        #bird-article {
+            width: 190px;
+            height: 485px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(210, 105, 30, 0.7) 20%, rgba(210, 105, 30, 0.2)  50% 80%, rgba(210, 105, 30, 0.7));
+            border-radius: 5px;
+            p {
+                width: 175px;
+                text-align: justify;
+            }
+        }
+        img {
+            width: 188px;
+            height: 150px;
+            border-radius: 10px;
+        }
+    }
+    #intersection-img {
+        width: 640px;
+        height: auto;
+    }
+    #snow-fairy-article {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 5px;
+        background: linear-gradient(120deg, rgba(210, 105, 30, 0.7) 20%, rgba(210, 105, 30, 0.2)  40% 90%, rgba(210, 105, 30, 0.7));
+        img {
+            width: 150px;
+            height: 250px;
+            outline: 2px solid chocolate;
+            border-radius: 5px;
+            box-shadow: 4px 4px 5px rgb(72, 32, 16);
+        }
+        summary {
+            font-size: 16px;
+            color: chocolate;
+            -webkit-text-stroke: 0.5px rgb(72, 32, 16);
+            cursor: pointer;
+        }
+        summary:hover {
+            font-size: 18px;
+            color: rgb(72, 32, 16);
+            -webkit-text-stroke: 0.5px rgb(72, 32, 16);
+        }
+    }
+    #snow-fairy-text {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        row-gap: 10px;
+
+        iframe {
+            outline: 1px solid rgb(72, 32, 16);
+            border-radius: 5px;
+        }
+    }
+    #evolucion {
+        width: 640px;
+        max-width: 640px;
+        height: 1600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        #article-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        #evolucion-intro {
+            width: 600px;
+        }
+    }
+    #evo-subsection-b {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        article {
+            width: 600px;
+        }
+        p {
+            width: 400px;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            outline: 2px solid chocolate;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+    #evo-subsection-a {
+        width: 640px;
+        height: 225px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background: linear-gradient(90deg, rgba(210, 105, 30, 0.6) 30%, rgba(210, 105, 30, 0.9) 40% 90%, rgba(210, 105, 30, 0.6));
+
+        article {
+            width: 600px;
+        }
+        p {
+            width: 400px;
+            color: white;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            outline: 2px solid white;
+            border-radius: 10px;
+        }
+    }
+    #evolucion-article {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 20px;
+    }
+    #evo-family {
+        width: 600px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    #family-article {
+        width: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        row-gap: 10px;
+
+        img {
+            width: 170px;
+            height: 170px;
+            border-radius: 100px;
+            outline: 5px solid chocolate;
+            box-shadow: 8px 8px 8px rgb(72, 32, 16);
+        }
+        p {
+            text-align: justify;
+        }
+    }
+    footer {
+        height: 180px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: rgb(72, 32, 16);
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 5px;
+        }
+        a {
+            color: white;
+            -webkit-text-stroke: 0.5px chocolate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5px;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            text-align: center;
+            color: white;
+        }
+        
+    }
+    #footer-izq {
+        width: 450px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #footer-text {
+        width: 440px;
+    }
+    #footer-dch {
+        width: 190px;
+    }
+    #social-icon {
+        width: 20px;
+        height: 20px;
+    }
+    #email {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10px;
+
+        input {
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            color: rgb(72, 32, 16);
+        }
+        input::placeholder {
+            color: chocolate;
+        }
+        button {
+            font-family: "Sakura";
+            font-weight: bold;
+            color: rgb(72, 32, 16);
+            background-color: chocolate;
+            border: none;
+            border-radius: 3px;
+            box-shadow: -2px -2px 2px white,
+                        2px 2px 2px black;
+            cursor: pointer;
+        }
+    }
+    #copy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 30px;
+    }
+    #arrow-top {
+        width: 40px;
+    }
+    #arrow-top:hover {
+        width: 50px;
+    }
+</style>
+<body>
+    <header id="top">
+        <div id="logo"><img src="img/shima-enaga-logo.png" alt="logo"></div>
+        <h1><b>Newsletter Shima Enaga</b></h1>
+        <nav id="navegacion">
+            <a id="nav-1" href="#caracteristicas">Características</a>
+            <a id="nav-2" href="#hada-nieves">Hada de la nieve</a>
+            <a id="nav-3" href="#evolucion">Evolución</a>
+            <a id="nav-4" href="#fin">Fin</a>
+        </nav>
+    </header>
+    <main>
+        <div id="bird-gifs">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+        </div>
+        <section id="caracteristicas">
+            <h2>CARACTERÍSTICAS</h2>
+            <div id="text-block-1">
+                <p>El shima enaga, de nombre científico <i>Aegithalos caudatus japonicus</i>, es una subespecie de herrerillo de cola larga caracterizados por ser pájaros pequeños 
+                de alrededor de 13cm, blanco como bolitas de nieve y su cola tiene casi la mitad de su longitud total. Habitan exclusivamente en la isla de Hokkaido, al norte de Japón.</p>
+            </div>
+        </section>
+        <section id="article-section">
+            <article id="bird-article">
+                <img src="img/shima-enaga-1.jpg" alt="">
+                <p><b>Morfología: </b>Esta ave mide apenas entre 13 y 14 centímetros y pesa alrededor de 8 gramos. A pesar de su baja masa, posee una silueta marcadamente 
+                    esférica. Tienen una cara blanca y una forma redonda, esponjosa parecida a un muñeco de nieve cuando mira hacia adelante. Durante el invierno, sus plumas blancas y esponjosas 
+                    y su pico pequeño y triangular ayudan a retener el calor.</p>
+            </article>
+            <article id="bird-article">
+                <img src="img/shima-enaga-2.jpg" alt="">
+                <p><b>Alimentación: </b>Su alimentación principal son los insectos y larvas que capturan durante la mayor parte de año. 
+                    Esta alimentación lo complementa con semillas y brotes vegetales. Cuando el frío es extremo, puede alimentarse lamiendo la savia que rezuma de la corteza de los árboles, 
+                    y aprovechan los frutos silvestres y semillas secas. En ocasiones, beben agua de carámbanos de hielo cuando el agua escasea.</p>
+            </article>
+            <article id="bird-article">
+                <img src="img/shima-enaga-3.avif" alt="">
+                <p><b>Ciclo de reproducción: </b>Entre febrero y marzo, las bandadas que se agruparon para sobrevivir al frío invernal se disuelven.
+                    Las aves forman parejas monógamas y delimitan sus territorios reproductivos. Cuando llega la primavera, entre abril y mayo, las hembras ponen entre 7 a 12 huevos que incubarán durante dos semanas.
+                    El 80% de las crías llegarán a adultos y abandonarán el nido entre 14 a 18 días después de haber nacido.</p>
+            </article>
+        </section>
+        <img id="intersection-img" src="img/long-tailed-tit-japan-2-edited.jpg" alt="">
+        <section id="hada-nieves">
+            <article id="snow-fairy-article">
+                <img src="img/shima-enaga-7.jpg" alt="">
+                <div id="snow-fairy-text">
+                    <h2>Hada de las nieves</h2>
+                    <p>El shima enaga ha tenido un impacto cultural masivo en los últimos años. Convirtiéndose, a día de hoy, en un fenómeno global y un pilar de la cultura pop japonesa. En Japón, es 
+                        considerado la personificación viva del concepto kawaii (tierno/lindo). La imagen del ave se ha trasladado con un éxito rotundo a los mercados comerciales: desde <i>merchandising</i> 
+                        como peluches o ropa, hasta cafeterías temáticas donde se elavoran pasteles, <i>lattes</i>, dulces y bolas de arroz con la forma del pájaro.
+                    </p>
+                    <p>En Chitose (Hokkaido) se encuentra la cafetería Bird Watching Cafe, uno de los mejores sitios para observar el pájaro y que ha convertido al ave en la mascota del establecimiento.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1740.332933916628!2d141.5917576064133!3d42.812033426503945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f7526d356dbcfd9%3A0x920b09f3efb73ce4!2sThe%20Bird%20Watching%20Cafe!5e0!3m2!1ses!2ses!4v1791132939091!5m2!1ses!2ses" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <div></div>
+                </div>
+            </article>
+        </section>
+        <div id="bird-gifs">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+        </div>
+        <section id="evolucion">
+            <h2>Herrerillos de cola larga</h2>
+            <p id="evolucion-intro">Su evolución y adaptación biológica están marcadas por tres pilares fundamentalos: su cola larga, su diversidad a lo largo de Eurasia y un sofisticado sistema de cría cooperativa.</p>
+            <div id="evo-subsection-a">
+                <article id="evolucion-article">
+                    <img src="img/Long-tailed-Tit2.jpg" alt="Mito">
+                    <p><b>Gran diversidad: </b>El shima enaga forma parte de la familia de los Herrerillos de cola larga: una familia de pequeños pájaros que se caracteriza de tener una cola que ocupa casi la mitad de su longitud y dar 
+                    saltos acrobáticos entre árboles. Las diferentes especies de herreillo de cola larga se extienden por toda Eurasia: desde Europa occidental, pasando por los Urales, China y Japón.</p>
+                </article>
+            </div>
+            <div id="evo-subsection-b">
+                <article id="evolucion-article">
+                    <p><b>Equilibrio acrobático:</b> Evolutivamente, su cola no se desarrolló para vuelos migratorios de larga distancia, sino como un mecanismo de contrapeso. Al ser un ave estrictamente insectívora,
+                        la cola le permite colgarse boca abajo en las ramas más delgadas y exteriores de los árboles para alcanzar presas inaccesibles para aves más pesadas.</p>
+                    <img src="img/shima-bocabajo.jpg" alt="Mito">
+                </article>
+            </div>
+            <div id="evo-subsection-a">
+                <article id="evolucion-article">
+                    <img src="img/shima-enaga-4.jpg" alt="Mito">
+                    <p><b>Aislamiento térmico:</b> Al mismo tiempo, su cuerpo evolucionó adoptando una forma casi esférica y un plumaje extremadamente denso y esponjoso. Esto minimiza la pérdida de calor en los inviernos 
+                        boreales y templados donde habita. Esta adaptación estructural no solo asegura su supervivencia, sino que también le otorga su característico aspecto de "copo de algodón" flotante.</p>
+                </article>
+            </div>
+            <div id="evo-subsection-b">
+                <article id="evolucion-article">
+                    <p><b>El papel de los "ayudantes":</b> Debido a las bajas tasas de éxito en los nidos por depredación o clima, los herrerillos que fracasan en reproducirse no abandonan la zona. En su lugar, se convierten en ayudantes en los 
+                        nidos de parejas vecinas. Esta cooperación altruista incrementa las posibilidades de supervivencia de los polluelos y asegura el éxito de la colonia en condiciones adversas.</p>
+                    <img src="img/two-long-tailed-tits.jpg" alt="Mito">
+                </article>
+            </div>
+            <div id="evo-subsection-a">
+                <article id="evolucion-article">
+                    <img src="img/Long-tailed-Tits.jpg" alt="Mito">
+                    <p><b>Estrategia evolutiva:</b> Los análisis genéticos revelan que estos ayudantes asisten casi exclusivamente a parejas con las que comparten un alto grado de parentesco (generalmente hermanos o padres). Al ayudar a 
+                        alimentar a los polluelos de sus familiares, aseguran de forma indirecta la supervivencia y transmisión de sus propios genes, una ventaja evolutiva clave para mantener la población en entornos hostiles.</p>
+                </article>
+            </div>
+            <p id="evolucion-intro">A lo largo de su historia evolutiva, el aislamiento de poblaciones debido a las glaciaciones generó una notable separación en tres grandes grupos de subespecies con patrones visuales muy diferenciados:</p>
+            <div id="evo-family">
+                <article id="family-article">
+                    <img src="img/europeaus.jpg" alt="Mito común">
+                    <p><b>Aegithalidae europaeus: </b>Cabeza blanca enmarcada por dos gruesas bandas o "cejas" negras laterales y cresta blanca. Se encuentran mayormente en Europa occidental y meridional (incluyendo la península ibérica).</p>
+                </article>
+                <article id="family-article">
+                    <img src="img/mito-comun-alpinus.jpg" alt="Mito común">
+                    <p><b>Aegithalidae alpinus: </b>Cabeza similar a <i>europeaus</i> pero con mejillas y dorso sombreados de tonos más oscuros y apagados. Se encuentra en los Alpes y alrededor del Mediterráneo occidental.</p>
+                </article>
+                <article id="family-article">
+                    <img src="img/shima-enaga-6.jpg" alt="Mito común">
+                    <p><b>Aegithalidae caudatus: </b>Cabeza completamente blanca y pura (parece un "copo de nieve"). Se encuentran entre Siberia y Japón. El shima enaga es de la subespecie <i>caudatus japonicus</i>, habitando sólo en Hokkaido.</p>
+                </article>
+            </div>
+        </section>
+        <div id="bird-gifs">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+            <img src="img/birds.gif" alt="bird-gif">
+        </div>
+        <img id="wallpaper" src="img/shima-enaga-degradado.jpg" alt="Imagen Shima Enaga">
+    </main>
+    <footer id="fin">
+        <div id="footer-izq">
+            <p id="footer-text">Si deseas saber más de maravilloso pájaro Shima Enaga, escríbenos tu correo electrónico para recibir notificaciones de nuevos artículos:</p>
+            <div id="email">
+                <input type="email" name="email" placeholder="Escríbe tu correo electrónico...">
+                <button type="submit">Enviar</button>
+            </div>
+            <div id="copy">
+                <p>&copy;2026 Todos los derechos reservados.</p>
+                <a href="#top"><img id="arrow-top" src="img/up-arrow.png" alt="Ir arriba"></a>
+            </div>
+        </div>
+        <div id="footer-dch">
+            <ul>
+                <li><a href=""><img id="social-icon" src="img/twitter-edit.png" alt="twitter"> X (twitter)</a></li>
+                <li><a href=""><img id="social-icon" src="img/facebook-edit.png" alt="facebook"> facebook</a></li>
+                <li><a href=""><img id="social-icon" src="img/instagram-edit.png" alt="instagram"> Instagram</a></li>
+                <li><a href=""><img id="social-icon" src="img/tiktok-edit.png" alt="tiktok"> Tiktok</a></li>
+                <li><a href=""><img id="social-icon" src="img/linkedin-edit.png" alt="linkedin"> Linked In</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

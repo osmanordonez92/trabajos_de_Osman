@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitología griega</title>
+    <link rel="icon" href="img/favicon.png">
+</head>
+<style>
+    @font-face {
+        font-family: "Greek Freak";
+        src: url(fonts/greek_freak/Greek-Freak.ttf);
+    }
+    @font-face {
+        font-family: "Gelio";
+        src: url(fonts/gelio/Gelio\ Fasolada.ttf);
+    }
+    ::selection {
+        background-color: rgb(255, 252, 160);
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        cursor: url(img/lightning-cursor.png) 3 1, crosshair;
+    }
+    #wrapper {
+        width: 650px;
+        margin: 0 auto;
+        outline: 2px solid #0f85fa;
+    }
+    header {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 12px;
+        background-color: #669cfc;
+        ::selection {
+            color: #0f85fa;
+        }
+        #upper-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            #title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            img {
+                width: 20%;
+                height: 20%;
+                transform: translateY(3px);
+            }
+            h1 {
+                font-family: "Greek Freak";
+                font-size: 40px;
+                color: white;
+            }
+            h4 {
+                font-family: "Greek Freak";
+                color: white;
+            }
+        }
+        #lower-header {
+            width: 100%;
+            nav {
+                width: 100%;
+            }
+            a {
+                font-family: "Greek Freak";
+                font-size: 18px;
+                color: white;
+            }
+        }
+        ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            column-gap: 12%;
+            li {
+                flex: 1;
+            }
+            a {
+                flex: 1;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    transition: font-size .2s, text-shadow .2s;
+                }
+            }
+            a:hover {
+                p {
+                    font-size: 28px;
+                    text-shadow: 2px 2px 5px white,
+                                 3px 3px 5px rgba(255, 217, 0, 0.6);
+                }
+            }
+        }
+    }
+    #introduction-image {
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(0deg, transparent 95%, #669cfc),
+                    url(img/introduction-image.png) no-repeat center / 100% 100%;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 20px;
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+      
+    }
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+        h2 {
+            font-family: "Greek Freak";
+            font-size: 24px;
+            text-align: center;
+        }
+        #h2-blue {
+            color: #0f85fa;
+        }
+    }
+    #gods {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 6px;
+        row-gap: 10px;
+    }
+    .god-box {
+        width: 30%;
+        height: 420px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+        outline: 1px solid #93b3fd;
+        border-radius: 10px;
+        corner-shape: bevel;
+        transition: transform .2s, box-shadow .2s;
+
+        img {
+            width: 90%;
+            border-radius: 10px;
+            corner-shape: bevel;
+        }
+        p {
+            width: 92%;
+            text-align: justify;
+            font-size: 13px;
+            color: #0f85fa;
+        }
+        button, a {
+            outline: 1px solid black;
+            width: 85px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            corner-shape: bevel;
+            background-color: #0f85fa;
+            box-shadow: inset 1px 1px 3px white,
+                        inset -1px -1px 3px black;
+            color: white;
+            font-size: 13px;
+            transition: background-color .3s, box-shadow .3s;
+        }
+        button:hover, a:hover {
+            background-color: #93b3fd;
+            box-shadow: 0 0 15px 3px #0f85fa;
+        }
+    }
+    .god-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 2px 2px 5px #0f85fa;
+    }
+    [popover] {
+        width: 600px;
+        height: 90vh;
+        inset: 0;
+        margin: auto;
+        border-radius: 20px;
+        corner-shape: bevel;
+        background: url(img/olympus-background.webp) no-repeat top center / 100% 120%;
+        transition-property: opacity, transform, box-shadow;
+        transition-duration:  0.6s, 0.6s, 0.4s;
+        transition-delay: 0s, 0s, 0.8s;
+        transition-timing-function: ease, ease, steps(4);
+
+        h2 {
+            color: rgb(255, 252, 160);
+            text-shadow: 0 0 5px rgb(255, 252, 178);
+
+        }
+        img {
+            width: 90%;
+            border-radius: 15px;
+            corner-shape: bevel;
+            outline: 1px solid rgb(255, 232, 104);
+            box-shadow: 0 0 6px rgb(255, 252, 160);
+        }
+        div {
+            width: 90%;
+            height: 40%;
+            background: url(img/old-papyrus.png) no-repeat center / 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            width: 65%;
+            font-family: "Gelio";
+            text-align: justify;
+        }
+    }
+    [popover]:popover-open {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 0 10px rgb(185, 180, 37), 0 0 20px rgb(238, 233, 97), 0 0 30px rgb(255, 252, 178), 0 0 40px white;
+    }
+    [popover]::backdrop {
+        background-color: rgba(0, 0, 0, .6);
+    }
+    .god-info {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 8px;
+    } 
+    .transition-1 {
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(180deg, white, #669cfc);
+    }
+    .transition-2 {
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(0deg, white, #669cfc);
+    }
+    #olympian-gods {
+        #description {
+            width: 96%;
+            height: 330px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(img/letrero-azul.png) no-repeat center / 100% 100%;
+            font-size: 14px;
+            p {
+                font-family: "Gelio";
+                font-size: 16px;
+                width: 85%;
+                color: #0f85fa;
+                text-align: justify;
+            }
+        }
+    }
+    #legend-section {
+        background-color: #669cfc;
+        
+        ::selection {
+            color: #0f85fa;
+        }
+        h2 {
+            color: white;
+        }
+        #intro-legend-image {
+            width: 100%;
+            height: 250px;
+            background: url(img/troya_museo_transparencia-2.png) no-repeat center / 100% 100%;
+        }
+        #intro-legend {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                width: 50%;
+            }
+        }
+        #description {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            font-size: 14px;
+            row-gap: 8px;
+            p {
+                width: 86%;
+                color: white;
+                text-align: justify;
+            }
+        }
+    }
+    #legends {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .legend-box {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        outline: 1px solid white;
+        overflow: hidden;
+        transition: all .3s;
+        img {
+            width: 50%;
+        }
+        .legend-description {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 10px;
+            text-align: justify;
+        }
+        h4 {
+            font-family: "Greek Freak";
+            font-size: 20px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        .legend-links {
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        a {
+            outline: 1px solid black;
+            width: 85px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background-color: #0f85fa;
+            box-shadow: inset 1px 1px 3px white,
+                        inset -1px -1px 3px black;
+            color: white;
+            font-size: 13px;
+            transition: background-color .3s, box-shadow .3s;
+        }
+        a:hover {
+            background-color: #93b3fd;
+            box-shadow: 0 0 15px 3px white;
+        }
+    }
+    .legend-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 2px 2px 5px white;
+    }
+    .lb-1 {
+        border-radius: 50px 5px 50px 5px;
+        corner-shape:bevel;
+    }
+    .lb-2 {
+        border-radius: 5px 50px 5px 50px;
+         corner-shape:bevel;
+    }
+    #semanal {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 6px;
+        row-gap: 10px;
+        h2 {
+            color: #0f85fa;
+        }
+    }
+    #weekly {
+        width: 95%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .week-box {
+        width: 30%;
+        height: 450px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+        outline: 1px solid #93b3fd;
+        border-radius: 10px;
+        transition: transform .2s, box-shadow .2s;
+
+        h4 {
+            color: #0f85fa;
+            font-family: "Greek Freak";
+        }
+        img {
+            width: 90%;
+            border-radius: 10px;
+        }
+        p {
+            width: 92%;
+            text-align: justify;
+            font-size: 13px;
+            color: #0f85fa;
+        }
+        a {
+            outline: 1px solid black;
+            width: 85px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background-color: #0f85fa;
+            box-shadow: inset 1px 1px 3px white,
+                        inset -1px -1px 3px black;
+            color: white;
+            font-size: 13px;
+            transition: background-color .3s, box-shadow .3s;
+        }
+        a:hover {
+            background-color: #93b3fd;
+            box-shadow: 0 0 15px 3px #0f85fa;
+        }
+    }
+    .week-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 2px 2px 5px #0f85fa;
+    }
+    .week-info {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        column-gap: 3px;
+    }
+    footer {
+        height: 180px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background-color: #0f85fa;
+        
+        ::selection {
+            color: #0f85fa;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 5px;
+        }
+        a {
+            font-family: "Gelio";
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            text-align: center;
+            color: white;
+        }
+    }
+    #upper-footer {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #upper-footer-links {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        div {
+            width: 26%;
+            height: 100%;
+        }
+        a {
+            font-size: 20px;
+            transition: all .3s;
+        }
+        a:hover {
+            font-size: 24px;
+            text-shadow: 2px 2px 4px white,
+                        3px 3px 4px rgba(255, 217, 0, .6);
+        }
+    }
+    #middle-mid-footer {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    #middle-footer {
+        width: 80%;
+        height: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        transform: translateY(-40%);
+        #middle-footer-links {
+            width: 62.5%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            div {
+                flex: 1;
+                height: 52px;
+                transform: translateY(-10px);
+            }
+        }
+        a {
+            width: 32px;
+            height: 32px;
+            transition: all .3s ease-in-out;
+        }
+        a:hover {
+            width: 48px;
+            height: 48px;
+        }
+        #twitter {
+            background: url(img/twitter.png) no-repeat center / 100% 100%;
+        }
+        #twitter:hover {
+            background: url(img/twitter-hover.png) no-repeat center / 100% 100%;
+        }
+        #facebook {
+            background: url(img/facebook.png) no-repeat center / 100% 100%;
+        }
+        #facebook:hover {
+            background: url(img/facebook-hover.png) no-repeat center / 100% 100%;
+        }
+        #instagram {
+            background: url(img/Instagram.png) no-repeat center / 100% 100%;
+        }
+        #instagram:hover {
+            background: url(img/Instagram-hover.png) no-repeat center / 100% 100%;
+        }
+        #tiktok {
+            background: url(img/tik-tok.png) no-repeat center / 100% 100%;
+        }
+        #tiktok:hover {
+            background: url(img/tik-tok-hover.png) no-repeat center / 100% 100%;
+        }
+        #linkedin {
+            background: url(img/linked-in.png) no-repeat center / 100% 100%;
+        }
+        #linkedin:hover {
+            background: url(img/linked-in-hover.png) no-repeat center / 100% 100%;
+        }
+        img {
+            width: 100%;
+        }
+        .amphora-footer {
+            width: 12%;
+            transform: translateY(40%);
+        }
+    }
+    #hr {
+        width: 80%;
+        height: 1px;
+        background-color: white;
+    }
+    #lower-footer {
+        width: 70%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        div {
+            flex: 1;
+        }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            p {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            span {
+                display: block;
+                flex: 1;
+                height: 2px;
+                background-color: white;
+                transform: scaleX(0);
+                transition: transform .3s ease-in;
+            }
+            .span-a {
+                transform-origin: left;
+            }
+            .span-b {
+                transform-origin: right;
+            }
+        }
+        a:hover {
+            span {
+                transform: scaleX(1);
+            }
+        }
+    }
+    #imagen-final {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        div {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, black);
+        }
+        img {
+            width: 100%;
+        }
+    }
+    @starting-style {
+        [popover]:popover-open {
+            opacity: 0;
+            transform: translateY(50%);
+            box-shadow: none;
+        }
+    }
+</style>
+<body>
+    <div id="wrapper">
+        <header>
+            <div id="upper-header">
+                <img src="img/header-img.png" alt="Partenon">
+                <div id="title">
+                    <h1>MITOLOGÍA GRIEGA</h1>
+                    <h4>Dioses y héroes de la grecia clásica.</h4>
+                </div>
+            </div>
+            <div id="lower-header">
+                <nav>
+                    <ul>
+                        <li><a href="#olympian-gods"><p>Dioses</p></a></li>
+                        <li><a href="#legend-section"><p>Leyendas</p></a></li>
+                        <li><a href="#weekly"><p>Semanal</p></a></li>
+                        <li><a href="#end"><p>Fin</p></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div id="introduction-image"></div>
+            <section id="olympian-gods">
+                <h2 id="h2-blue">Dioses olímpicos</h2>
+                <div id="description"><p>Los dioses olímpicos constituyeron el panteón principal de la mitología griega, residiendo en la cumbre del sagrado Monte Olimpo. Este poderoso grupo de doce deidades, liderado por Zeus, el dios 
+                    del trueno, gobernaba el cosmos. Cada miembro personificaba fuerzas de la naturaleza o aspectos de la experiencia humana, desde la sabiduría de Atenea hasta la guerra 
+                    de Ares. Lejos de ser perfectos, los olímpicos poseían rasgos marcadamente humanos: sentían celos, ira, amor y vanidad. Su culto y leyendas no solo explicaban el origen del mundo, sino que 
+                    moldearon la cultura, el arte y la filosofía de la antigua Grecia.</p></div>
+                <div id="gods">
+                    <div class="god-box">
+                        <img src="img/dioszeus-980x1666.png" alt="Zeus">
+                        <p>Dios del rayo y rey del Olimpo. Conocido por gobernar con sabiduría y firmeza.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="zeus-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=A7SIvUsI2Fw" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="zeus-popover" popover>
+                        <h2>ZEUS, REY DEL OLIMPO</h2>
+                        <img src="img/zeus-anfora.jpg" alt="Zeus">
+                        <div><p>Zeus es el dios supremo de la mitología griega, gobernante absoluto del monte Olimpo y señor del cielo y el trueno. Hijo menor de los titanes Cronos y Rea, logró liberar a sus hermanos y derrocar a su padre en una 
+                            épica guerra conocida como la Titanomaquia. Armado con su temible rayo forjado por los cíclopes, mantuvo el orden cósmico y la justicia entre dioses y mortales. Casado con la diosa Hera.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-hera-980x1666.png" alt="Hera">
+                        <p>Es la diosa del matrimonio y reina del Olimpo, ya que es la tercera esposa de Zeus.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="hera-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=hdGbpxIQVOc" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="hera-popover" popover>
+                        <h2>HERA, REINA DEL OLIMPO</h2>
+                        <img src="img/hera-anfora.webp" alt="Hera">
+                        <div><p>Hera es la reina de los dioses en la mitología griega, hija de Crono y Rea. Como esposa y hermana de Zeus, preside el Olimpo y es la protectora sagrada del matrimonio, las mujeres y el parto. Su imagen proyecta 
+                            majestuosidad y poder, acompañada frecuentemente por sus símbolos característicos: el pavo real, la granada y la diadema real. Aunque es venerada por defender la fidelidad conyugal.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/Poseidon-980x1666.jpg" alt="Poseidón">
+                        <p>Dios de los mares y los terremotos, asociado al toro y al caballo.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="poseidon-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=6NNkAq-KJUY" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="poseidon-popover" popover>
+                        <h2>POSEIDÓN, DIOS DEL MAR</h2>
+                        <img src="img/poseidon-anfora.webp" alt="Poseidón">
+                        <div><p>Poseidón es el poderoso dios de los mares, las tormentas y los terremotos en la mitología griega. Hijo de Crono y Rea, recibió el dominio de los océanos tras derrotar a los titanes junto a sus hermanos Zeus y Hades. 
+                            Empuñando su temible tridente, puede desatar maremotos devastadores o calmar las aguas para proteger a los marineros. Además de gobernar los abismos, es venerado como el creador y protector de los caballos.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-artemisa-980x1666.png" alt="Artemisa">
+                        <p>Diosa de la Luna, la castidad y la caza, hija de Zeus y Leto, y melliza de Apolo.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="artemisa-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=18G_ltrKKTg" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="artemisa-popover" popover>
+                        <h2>ARTEMISA, DIOSA DE LA CAZA</h2>
+                        <img src="img/artemisa-anfora.jpg" alt="Artemisa">
+                        <div><p>Artemisa es la diosa griega de la caza, los bosques, los animales salvajes, la virginidad y la luna. Hija de Zeus y Leto, y hermana gemela de Apolo, recorre la naturaleza armada con un arco y flechas de plata, 
+                            acompañada por un séquito de ninfas y perros de caza. Es una feroz protectora de las mujeres jóvenes y de la naturaleza indómita, castigando severamente a quienes profanan sus dominios o faltan al respeto a su pureza.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-afrodita.png" alt="Afrodita">
+                        <p>La diosa del Amor. Es una de las diosas más influyentes de la mitología.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="afrodita-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=Vlb4E9m9S6w">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="afrodita-popover" popover>
+                        <h2>AFRODITA, DIOSA DEL AMOR</h2>
+                        <img src="img/afrodita-anfora.webp" alt="Afrodita">
+                        <div><p>Afrodita es la diosa griega del amor, la belleza, el deseo y la fertilidad. Según el mito más célebre, nació de la espuma del mar cerca de Chipre, emergiendo con una gran hermosura. Aunque estaba casada con el herrero Hefesto, 
+                            mantuvo apasionados romances, destacando su unión con Ares, el dios de la guerra. Acompañada por palomas, rosas y mirto, su poder sobre los corazones era irresistible, llegando incluso a desencadenar la guerra de Troya.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/dios-apolo-980x1666.png" alt="Apolo">
+                        <p>Dios de la luz, el Sol y las artes, hijo de Zeus y Leto, y mellizo de Artemisa.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="apolo-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=j-b09tYV-DU" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="apolo-popover" popover>
+                        <h2>APOLO, DIOS DEL SOL</h2>
+                        <img src="img/apolo-anfora.webp" alt="Apolo">
+                        <div><p>Apolo es el dios griego del sol, la luz, la música, la poesía, la profecía y la curación. Hijo de Zeus y Leto, y hermano gemelo de Artemisa, encarna el ideal clásico de la belleza masculina, la armonía y la razón. Portando 
+                            su lira dorada y su arco de plata, inspira a los artistas y preside las artes junto a las musas. Además, es venerado como una deidad oracular suprema, comunicando el futuro a través de su santuario en Delfos.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/dios-hades-980x1666.png" alt="Hades">
+                        <p>Dios del Inframundo, el mundo subterráneo donde habitan las almas de los difuntos.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="hades-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=dkjIUnigOEA" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="hades-popover" popover>
+                        <h2>HADES, DIOS DEL INFRAMUNDO</h2>
+                        <img src="img/hades-anfora.webp" alt="Hades">
+                        <div><p>Hades es el dios griego del inframundo y soberano de los muertos. Hijo mayor de Crono y Rea, recibió el dominio del mundo subterráneo tras repartirse el universo con sus hermanos Zeus y Poseidón. Acompañado por su esposa 
+                            Perséfone y su temible perro de tres cabezas, Cerbero, gobierna un reino sombrío donde las almas descansan eternamente. Aunque suele ser vínculado con la muerte, aunque los antiguos griegos no lo veían como una deidad maligna.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-atenea-980x1666.png" alt="Atenea">
+                        <p>Diosa de la sabiduría y la guerra estratégica, patrona de la ciudad de Atenas.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="atenea-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=Z-SY51vJs38" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="atenea-popover" popover>
+                        <h2>ATENEA, DIOSA DE LA SABIDURÍA</h2>
+                        <img src="img/atenea-anfora.webp" alt="Atenea">
+                        <div><p>Atenea es la diosa griega de la sabiduría, la estrategia militar, la justicia y las artes. Según el mito, nació completamente armada y adulta de la frente de Zeus, encarnando la inteligencia y la razón. A diferencia del violento Ares, 
+                            ella representa el aspecto táctico y disciplinado de la guerra, además de proteger el conocimiento y la artesanía. Acompañada por una lechuza y con su égida y lanza, es la venerada patrona de Atenas.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/dios-ares-980x1666.png" alt="Ares">
+                        <p>Dios de la guerra, hijo de Zeus y Hera. Representa todas las atrocidades de la guerra.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="ares-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=rTtpMlUTB2o" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="ares-popover" popover>
+                        <h2>ARES, DIOS DE LA GUERRA</h2>
+                        <img src="img/ares-anfora.png" alt="Ares">
+                        <div><p>Ares es el dios griego de la guerra, la violencia, el derramamiento de sangre y la brutalidad en el combate. Hijo de Zeus y Hera, personifica el aspecto más salvaje, caótico e impulsivo de las batallas, en claro contraste con la estrategia 
+                            reflexiva de su hermana Atenea. Aunque es temido por su furia implacable y sed de destrucción, también simboliza la valentía física y el ardor guerrero.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-demeter-980x1666.png" alt="Deméter">
+                        <p>Diosa de la agricultura y las cosechas. Es madre de Perséfone, junto con Zeus. </p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="demeter-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=b84NLPEqqBM" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="demeter-popover" popover>
+                        <h2>DEMÉTER, DIOSA DE LA AGRICULTURA</h2>
+                        <img src="img/demeter-anfora.jpg" alt="Deméter">
+                        <div><p>Deméter es la diosa griega de la agricultura, las cosechas, la fertilidad de la tierra y el ciclo de las estaciones. Hija de Crono y Rea, enseñó a la humanidad el arte de cultivar el trigo y el grano, sustentando así la civilización. Su mito 
+                            más célebre narra su inmenso dolor cuando Hades raptó a su hija Perséfone; sumida en la tristeza, Deméter detuvo el crecimiento de las plantas, provocando el primer invierno.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/diosa-hestia-980x1666.png" alt="Hestia">
+                        <p>La diosa del hogar y protectora del fuego sagrado. Se la asocia un carácter pacífico.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="hestia-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=Mac361Tsx2E" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="hestia-popover" popover>
+                        <h2>HESTIA, DIOSA DEL HOGAR</h2>
+                        <img src="img/hestia-anfora.jpg" alt="Hestia">
+                        <div><p>Hestia es la diosa griega del hogar, la familia, el orden doméstico y el fuego sagrado. Primogénita de Crono y Rea, rechazó las propuestas matrimoniales de Poseidón y Apolo para mantener su virginidad eterna, recibiendo de Zeus el honor de presidir 
+                            cada hogar y templo. A diferencia de otros dioses olímpicos, Hestia nunca participó en disputas ni guerras, simbolizando la paz, la estabilidad y la hospitalidad.</p></div>
+                    </div>
+                    <div class="god-box">
+                        <img src="img/dios-hermes.png" alt="Hermes">
+                        <p>Hijo de Zeus y la pléyade Maya, es el Dios del comercio y heraldo de los dioses.</p>
+                        <div class="god-info">
+                            <button class="more-info" popovertarget="hermes-popover">Saber más</button>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=T9gUtoC0yac" target="_blank">▶️ YouTube</a>
+                        </div>
+                    </div>
+                    <div class="god-popover" id="hermes-popover" popover>
+                        <h2>HERMES, EL MENSAJERO DE LOS DIOSES</h2>
+                        <img src="img/hermes-anfora.jpg" alt="Hermes">
+                        <div><p>Hermes es el dios griego de los viajeros, el comercio, la elocuencia, los ladrones y mensajero de los dioses. Hijo de Zeus y Maya, destaca por su astucia, rapidez y sentido del humor. Calzado con sandalias aladas y portando el caduceo, viaja velozmente 
+                            entre el Olimpo, la tierra y el inframundo, guiando también las almas de los difuntos hacia el reino de Hades. Desde su nacimiento demostró su ingenio al robar el ganado de Apolo.</p></div>
+                    </div>
+                </div>
+            </section>
+            <section id="legend-section">
+                <div class="transition-1"></div>
+                <div id="intro-legend">
+                    <div id="intro-legend-image"></div>
+                    <div id="description">
+                    <h2>Grandes leyendas</h2>
+                    <p>Las grandes leyendas de la mitología griega abarcan tanto los relatos fundacionales del cosmos como las 
+                        hazañas de héroes y dioses. Más allá del entretenimiento, estas leyendas funcionaban como guía moral y 
+                        cultural para los antiguos griegos.<br><br>Entre las principales leyendas se encuentran la Guerra de Troya, 
+                        narrado en la Ilíada y la Odisea de Homero. Hoy en día, siguen siendo un pilar fundamental de la literatura, 
+                        el arte y el pensamiento occidental, ofreciendo símbolos universales sobre la condición humana.
+                    </p>
+                    </div>
+                </div>
+                <div id="legends">
+                    <div class="legend-box lb-1" id="troya">
+                        <img src="img/guerra-troya-degradado.png" alt="Guerra de Troya">
+                        <div class="legend-description">
+                            <h4>Guerra de Troya</h4>
+                            <p>El rapto de Helena, reina de Esparta, desata la guerra entre los aqueos contra la ciudad de Troya para 
+                                rescatarla. Los héroes de Grecia se unen en la contienda.
+                            </p>
+                            <div class="legend-links">
+                                <a class="more-info" href="https://es.wikipedia.org/wiki/Guerra_de_Troya" target="_blank">Saber más</a>
+                                <a class="youtube" href="https://www.youtube.com/watch?v=gsqPiCVVtGw" target="_blank">▶️ YouTube</a>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div class="legend-box lb-2" id="odisea">
+                        <div></div>
+                        <div class="legend-description">
+                            <h4>La Odisea</h4>
+                            <p>La Odisea es un poema épico griego de 24 cantos atribuido a Homero y compuesto en el siglo VIII a. C. 
+                                Narra el regreso de Odiseo a Ítaca tras la guerra de Troya.
+                            </p>
+                            <div class="legend-links">
+                                <a class="more-info" href="https://es.wikipedia.org/wiki/Odisea" target="_blank">Saber más</a>
+                                <a class="youtube" href="https://www.youtube.com/watch?v=19F2NPhodLs&t=1s" target="_blank">▶️ YouTube</a>
+                            </div>
+                        </div>
+                        <img src="img/odisea-degradado.png" alt="Guerra de Troya">
+                    </div>
+                    <div class="legend-box lb-1" id="12-trabajos">
+                        <img src="img/heracles-leon-menea.png" alt="12 trabajos">
+                        <div class="legend-description">
+                            <h4>12 trabajos de Heracles</h4>
+                            <p>Fueron impuestos por el rey Euristeo como penitencia tras un ataque de locura —provocado por la diosa Hera— 
+                                en el que el héroe asesinó a su propia familia.
+                            </p>
+                            <div class="legend-links">
+                                <a class="more-info" href="https://es.wikipedia.org/wiki/Los_doce_trabajos_de_Heracles" target="_blank">Saber más</a>
+                                <a class="youtube" href="https://www.youtube.com/watch?v=A2_j_r3qK6Y" target="_blank">▶️ YouTube</a>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div class="legend-box lb-2" id="titanomaquia">
+                        <div></div>
+                        <div class="legend-description">
+                            <h4>Titanomaquia</h4>
+                            <p>La guerra de diez años entre los titanes y los dioses olímpicos por el dominio del universo. Con el apoyo de los 
+                                Hecatónquiros, los olímpicos vencieron a los titanes en Tesalia.
+                            </p>
+                            <div class="legend-links">
+                                <a class="more-info" href="https://es.wikipedia.org/wiki/Titanomaquia" target="_blank">Saber más</a>
+                                <a class="youtube" href="https://www.youtube.com/watch?v=tF1jZjwcLqQ" target="_blank">▶️ YouTube</a>
+                            </div>
+                        </div>
+                        <img src="img/titanomaquia-degradado.png" alt="Titanomaquia">
+                    </div>
+                </div>
+                <div class="transition-2"></div>
+            </section>
+            <section id="semanal">
+                <h2>Artículos de la semana</h2>
+                <div id="weekly">
+                    <div class="week-box" id="week-hero">
+                        <h4>Dios de la semana</h4>
+                        <img src="img/diosapersefone-980x1666.jpg" alt="Perséfone">
+                        <p>La reina del Inframundo, hija de Zeus y Deméter. Fue raptada por Hades para convertirla en su esposa. 
+                        </p>
+                        <div class="week-info">
+                            <a class="more-info" href="https://es.wikipedia.org/wiki/Pers%C3%A9fone" target="_blank">Saber más</a>
+                        </div>
+                    </div>
+                    <div class="week-box" id="week-hero">
+                        <h4>Héroe de la semana</h4>
+                        <img src="img/heracles.webp" alt="Heracles">
+                        <p>El famoso hijo de Zeus y la mortal Alcmena. Cumplió con las doce pruebas del rey Euristeo.
+                        </p>
+                        <div class="week-info">
+                            <a class="more-info" href="https://es.wikipedia.org/wiki/Heracles" target="_blank">Saber más</a>
+                        </div>
+                    </div>
+                    <div class="week-box" id="week-hero">
+                        <h4>Leyenda de la semana</h4>
+                        <img src="img/perseo.webp" alt="Perseo">
+                        <p>El héroe que logró decapitar a Medusa, su mirada convertía en piedra a quien la observaba directamente.
+                        </p>
+                        <div class="week-info">
+                            <a class="more-info" href="https://es.wikipedia.org/wiki/Perseo" target="_blank">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="espacio-final"></div>
+            </section>
+            <div id="imagen-final">
+                <div id="degradado-final"></div>
+                <img src="img/caballo-guerra-troya.webp" alt="">
+            </div>
+            
+        </main>
+        <footer id="end">
+            <div id="upper-footer">
+                <div id="upper-footer-links">
+                    <div><a href="">Suscribirme</a></div>
+                    <div><a href="">Mas articulos</a></div>
+                    <div><a href="#top">Volver arriba</a></div>
+                </div>
+            </div>
+            <div id="middle-footer">
+                <img src="img/anfora.png" alt="Ánfora" class="amphora-footer">
+                <div id="middle-mid-footer">
+                    <div id="middle-footer-links">
+                        <div><a id="twitter" href="https://x.com/?lang=es"></a></div>
+                        <div><a id="facebook" href="https://www.facebook.com/?locale=es_ES"></a></div>
+                        <div><a id="instagram" href="https://www.instagram.com/"></a></div>
+                        <div><a id="tiktok" href="https://www.tiktok.com/login"></a></div>
+                        <div><a id="linkedin" href="https://es.linkedin.com/"></a></div>
+                    </div>
+                    <p id="copy">&copy;2026 Todos los derechos reservados.</p>
+                </div>
+                <img src="img/anfora.png" alt="Ánfora" class="amphora-footer">
+            </div>
+            <div id="hr"></div>
+            <div id="lower-footer">
+                <div><a href="">Politica de coockies <p><span class="span-a"></span><span class="span-b"></span></p></a></div>
+                <div><a href="">Politica de privacidad <p><span class="span-a"></span><span class="span-b"></span></p></a></div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
